@@ -1,0 +1,49 @@
+/* Centrar el contenido con Flexbox */
+body {
+    height: 100vh;  /* Altura del viewport */
+    display: flex;
+    justify-content: center;  /* Centra horizontalmente */
+    align-items: center;  /* Centra verticalmente */
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);  /* Fondo en degradado */
+    margin: 0;  /* Eliminar márgenes por defecto */
+}
+
+/* Estilos para el formulario */
+.login-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;  /* Bordes redondeados */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);  /* Sombra para un efecto de elevación */
+    text-align: center;  /* Alineación del texto */
+}
+
+.login-container h1 {
+    margin-bottom: 20px;  /* Espacio debajo del título */
+}
+
+.form-group {
+    margin-bottom: 15px;  /* Espacio entre campos */
+}
+
+.btn {
+    width: 100%;  /* Botón ocupa todo el ancho */
+    padding: 10px;  /* Aumentar el padding para el botón */
+    border: none;
+    border-radius: 5px;  /* Bordes redondeados */
+    cursor: pointer;  /* Cambiar cursor al estilo de mano */
+    transition: background-color 0.3s;  /* Animación al pasar el ratón */
+}
+
+.btn-primary {
+    background-color: #2575fc;  /* Color del botón */
+    color: white;  /* Color del texto */
+}
+
+.btn-primary:hover {
+    background-color: #1a5cb3;  /* Cambiar el color al pasar el ratón */
+}
+
+.alert {
+    padding: 10px;  /* Ajustar el padding de las alertas */
+    border-radius: 5px;  /* Bordes redondeados para las alertas */
+}
