@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Home del Cliente</title>
+
+    <!-- Incluir Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Incluir CSS personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_c.css') }}">
+
+       <!-- Incluir FontAwesome para íconos -->
+       <script src="https://kit.fontawesome.com/9e204c657e.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!-- Contenedor para la cabecera -->
+    <div class="header-container d-flex justify-content-between align-items-center p-3">
+    
+        <div class="welcome-text">
+            <h1>Bienvenido a FitoGreen, {{ username }}! </h1>
+        </div>
+  
+        <!-- Carrito  -->
+        <div class="shopping-cart">
+            <button class="btn btn-secondary">
+                <i class="fa-sharp fa-solid fa-cart-circle-plus"></i> Ver Carrito
+            </button>
+        </div>
+    </div>
+
+    <!-- Barra de búsqueda -->
+    <div class="search-container d-flex justify-content-center my-3">
+        <div class="input-group" style="max-width: 600px;">
+            <input type="text" class="form-control" placeholder="Buscar productos..." aria-label="Buscar">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button">Buscar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pestañas de navegación -->
+    <ul class="nav nav-tabs justify-content-center my-3"> 
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Catálogo</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="#">Contacto</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="#">Asesoria Virtual</a>
+        </li>
+    </ul>
+
+    <!-- Contenido de la página -->
+    <div class="content-container p-4">
+        <p> aca va el catalogo</p>
+    </div>
+
+
+
+    <!-- Incluir Bootstrap JavaScript y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  
+</body>
+</html>
+

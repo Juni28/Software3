@@ -1,20 +1,23 @@
 /* Centrar el contenido con Flexbox */
 body {
     height: 100vh;  /* Altura del viewport */
-    display: flex;
-    justify-content: center;  /* Centra horizontalmente */
-    align-items: center;  /* Centra verticalmente */
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);  /* Fondo en degradado */
     margin: 0;  /* Eliminar márgenes por defecto */
+    padding: 0;  /* Eliminar padding por defecto */
+    background-image: url('/static/paisaje.jpg');  /* Ruta a la imagen de fondo */
+    background-size: cover;  /* Asegurar que la imagen cubra toda la pantalla */
+    background-position: center;  /* Centrar la imagen */
+    background-repeat: no-repeat;  /* No repetir la imagen */
+    display: flex;
+    justify-content: center;  /* Centrar horizontalmente */
+    align-items: center;  /* Centrar verticalmente */
 }
 
 /* Estilos para el formulario */
 .login-container {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);  /* Fondo blanco con transparencia */
     padding: 30px;
     border-radius: 10px;  /* Bordes redondeados */
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);  /* Sombra para un efecto de elevación */
-    text-align: center;  /* Alineación del texto */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);  /* Sombra */
 }
 
 .login-container h1 {

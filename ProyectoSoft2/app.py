@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 
 app = Flask(__name__)
-app.secret_key = 'tu_clave_secreta'  # Esto se usa para manejar sesiones y cookies.
+app.secret_key = 'tu_clave_secreta'  # Se usa para manejar sesiones y cookies.
 
-# Datos de prueba para validar inicio de sesión
+# Datos de prueba con un atributo para el tipo de usuario
 usuarios = {
-    "usuario1": "psw",
-    "usuario2": "password2"
+    "cliente1": {"password": "psw1", "role": "cliente"},
+    "empleado1": {"password": "psw2", "role": "empleado"},
 }
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -15,23 +15,38 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        if username in usuarios and usuarios[username] == password:
+        if username in usuarios and usuarios[username]["password"] == password:
             session['logged_in'] = True
             session['username'] = username
-            flash('Inicio de sesión exitoso!', 'success')
-            return redirect(url_for('home'))
+            session['role'] = usuarios[username]["role"]
+            
+
+            # Redirigir según el tipo de usuario
+            if session['role'] == 'cliente':
+                return redirect(url_for('home_cliente'))
+            elif session['role'] == 'empleado':
+                return redirect(url_for('home_empleado'))
         else:
             flash('Usuario o contraseña incorrectos.', 'error')
 
     return render_template('login.html')
 
 
-@app.route('/home')
-def home():
-    if 'logged_in' in session and session['logged_in']:
-        return render_template('home.html', username=session['username'])
+@app.route('/home_cliente')
+def home_cliente():
+    if 'logged_in' in session and session['logged_in'] and session['role'] == 'cliente':
+        return render_template('home_cliente.html', username=session['username'])
     else:
-        flash('Necesitas iniciar sesión primero.', 'error')
+        flash('Acceso denegado. Debes ser un cliente.', 'error')
+        return redirect(url_for('login'))
+
+
+@app.route('/home_empleado')
+def home_empleado():
+    if 'logged_in' in session and session['logged_in'] and session['role'] == 'empleado':
+        return render_template('home_empleado.html', username=session['username'])
+    else:
+        flash('Acceso denegado. Debes ser un empleado.', 'error')
         return redirect(url_for('login'))
 
 
@@ -39,7 +54,7 @@ def home():
 def logout():
     session.pop('logged_in', None)
     session.pop('username', None)
-    flash('Sesión cerrada.', 'info')
+    session.pop('role', None)
     return redirect(url_for('login'))
 
 

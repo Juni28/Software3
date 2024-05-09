@@ -1,0 +1,20 @@
+/* Centrar el contenido de la página */
+body {
+    height: 100vh;  /* Altura del viewport */
+    display: justify ;
+    justify-content: justify ;  /* Centra horizontalmente */
+    align-items: justify ;  /* Centra verticalmente */
+    margin: 0;  /* Eliminar márgenes por defecto */
+    background: white;  /* Fondo degradado */
+}
+
+/* Estilos para la caja principal */
+.home-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;  /* Bordes redondeados */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);  /* Sombra */
+    width: 80%;  /* Ajustar el ancho */
+    max-width: 800px;  /* Limitar el ancho máximo */
+    text-align: justify  ;  /* Centrar el texto */
+}

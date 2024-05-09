@@ -21,9 +21,14 @@
                 <label for="password">Contraseña:</label>
                 <input type="password" class="form-control" name="password" required>
             </div>
+            <div class="form-group">
             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        </div>
+            <div class="form-group">
+           <center> <a href="https://www.icegif.com/wp-content/uploads/bongo-cat-icegif-1.gif" class="alert-link"> ¿Aún no te has registrado? </a> </center>
+        </div>
         </form>
-
+        
         {% with messages = get_flashed_messages(with_categories=True) %}
             {% if messages %}
                 <div class="mt-3">
